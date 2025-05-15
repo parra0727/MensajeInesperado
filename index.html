@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Un Mensaje Inesperado ✨</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            background: linear-gradient(to bottom right, #ffcdd2, #fce4ec, #fff8e1, #f0f4c3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 30px;
+            box-sizing: border-box;
+            overflow: hidden; /* Para que las flores no se desborden */
+        }
+
+        .mensaje-container {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+            text-align: center;
+            z-index: 10;
+            max-width: 95%;
+            margin-bottom: 30px;
+            animation: aparecerFlotando 1.2s ease-out forwards;
+            transform: translateY(-30px);
+            opacity: 0;
+        }
+
+        @keyframes aparecerFlotando {
+            0% { transform: translateY(-30px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        .titulo-principal {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5em;
+            color: #e91e63;
+            margin-bottom: 25px;
+            animation: pulsoColor 1.5s infinite alternate, aparecerTitulo 1s ease-out 0.5s forwards;
+            opacity: 0;
+        }
+
+        @keyframes aparecerTitulo {
+            to { opacity: 1; }
+        }
+
+        @keyframes pulsoColor {
+            0% { color: #e91e63; transform: scale(1); }
+            100% { color: #d81b60; transform: scale(1.05); }
+        }
+
+        .mensaje-desplegando {
+            font-size: 1.2em;
+            color: #555;
+            line-height: 1.8;
+            white-space: pre-wrap;
+            overflow: hidden;
+            border-right: .1em solid #e91e63;
+            margin-bottom: 30px;
+            animation: escribir 5s steps(45, end) forwards, parpadear 0.8s step-end infinite alternate;
+        }
+
+        @keyframes escribir {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes parpadear {
+            from, to { border-color: transparent }
+            50% { border-color: #e91e63; }
+        }
+
+        .hablame-container {
+            margin-top: 30px;
+            animation: surgirBoton 1s ease-out 2s forwards, latirCorazon 1.5s infinite alternate 2s;
+            opacity: 0;
+            transform: scale(0.9);
+        }
+
+        @keyframes surgirBoton {
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes latirCorazon {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.08); }
+        }
+
+        .hablame-texto {
+            font-size: 1.3em;
+            color: #880e4f;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .hablame-instruccion {
+            font-size: 1.1em;
+            color: #777;
+        }
+
+        .firma {
+            font-family: 'Caveat', cursive;
+            font-size: 1.5em;
+            color: #d81b60;
+            margin-top: 30px;
+            animation: escribirFirma 2s steps(20, end) forwards, aparecerFirma 1s ease-out 2s forwards;
+            opacity: 0;
+            overflow: hidden;
+            white-space: nowrap;
+            width: 0;
+        }
+
+        @keyframes aparecerFirma {
+            to { opacity: 1; }
+        }
+
+        @keyframes escribirFirma {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        /* Estilos para las flores dibujadas con CSS */
+        .flor {
+            position: absolute;
+            border-radius: 50%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            animation: derivaSuave 6s infinite alternate;
+        }
+
+        .petalo {
+            position: absolute;
+            background-color: #f8bbd0;
+            border-radius: 50%;
+            animation: escalarPetalo 1.8s infinite alternate;
+        }
+
+        .centro {
+            position: absolute;
+            background-color: #ffb74d;
+            border-radius: 50%;
+            animation: pulsarCentro 1.5s infinite alternate;
+        }
+
+        /* Animaciones para las flores */
+        @keyframes derivaSuave {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(10px, -10px) rotate(360deg); }
+        }
+
+        @keyframes escalarPetalo {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1.05); opacity: 0.9; }
+        }
+
+        @keyframes pulsarCentro {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+
+        /* Posiciones y tamaños de las flores (¡ajusta estos valores para móvil!) */
+        .flor1 { top: 15%; left: 10%; width: 40px; height: 40px; }
+        .flor1 .petalo1 { top: 0; left: 12px; width: 16px; height: 24px; }
+        .flor1 .petalo2 { top: 12px; left: 0; width: 24px; height: 16px; }
+        .flor1 .petalo3 { top: 24px; left: 12px; width: 16px; height: 24px; }
+        .flor1 .petalo4 { top: 12px; left: 24px; width: 24px; height: 16px; }
+        .flor1 .centro { top: 12px; left: 12px; width: 16px; height: 16px; }
+
+        .flor2 { top: 65%; right: 5%; width: 60px; height: 60px; animation-delay: 0.8s; }
+        .flor2 .petalo1 { top: 4px; left: 17px; width: 20px; height: 28px; }
+        .flor2 .petalo2 { top: 17px; left: 4px; width: 28px; height: 20px; }
+        .flor2 .petalo3 { top: 30px; left: 17px; width: 20px; height: 28px; }
+        .flor2 .petalo4 { top: 17px; left: 30px; width: 28px; height: 20px; }
+        .flor2 .centro { top: 20px; left: 20px; width: 20px; height: 20px; }
+
+        .flor3 { bottom: 10%; left: 35%; width: 50px; height: 50px; animation-delay: 0.3s; }
+        .flor3 .petalo1 { top: 0; left: 15px; width: 18px; height: 26px; }
+        .flor3 .petalo2 { top: 15px; left: 0; width: 26px; height: 18px; }
+        .flor3 .petalo3 { top: 30px; left: 15px; width: 18px; height: 26px; }
+        .flor3 .petalo4 { top: 15px; left: 30px; width: 26px; height: 18px; }
+        .flor3 .centro { top: 15px; left: 15px; width: 18px; height: 18px; }
+
+        /* Ajustes para pantallas más pequeñas */
+        @media (max-width: 600px) {
+            .titulo-principal {
+                font-size: 2.5em;
+            }
+            .mensaje-desplegando {
+                font-size: 1.1em;
+            }
+            .mensaje-container {
+                padding: 25px;
+            }
+            /* Ajusta la posición y tamaño de las flores para móvil si es necesario */
+            .flor1 { top: 10%; left: 5%; width: 30px; height: 30px; }
+            .flor2 { top: 75%; right: 2%; width: 45px; height: 45px; }
+            .flor3 { bottom: 2%; left: 45%; width: 35px; height: 35px; }
+            .flor .petalo { animation-duration: 2.5s; }
+            .flor .centro { animation-duration: 2s; }
+        }
+    </style>
+</head>
+<body>
+    <div class="mensaje-container">
+        <h1 class="titulo-principal">¡Hola,Isabella ! ✨</h1>
+        <div class="mensaje-desplegando" id="mensajeParaElla"></div>
+        <div class="hablame-container">
+            <p class="hablame-texto">Tu sonrisa tiene un poder increíble para mí...</p>
+            <p class="hablame-instruccion">(Un mensajito tuyo me alegraría aún más el día 😉)</p>
+        </div>
+        <p class="firma">Con una sonrisa pensando en la tuya,<br>Abraham 💫</p>
+    </div>
+
+    <div class="flor flor1">
+        <div class="petalo petalo1"></div>
+        <div class="petalo petalo2"></div>
+        <div class="petalo petalo3"></div>
+        <div class="petalo petalo4"></div>
+        <div class="centro"></div>
+    </div>
+
+    <div class="flor flor2">
+        <div class="petalo petalo1"></div>
+        <div class="petalo petalo2"></div>
+        <div class="petalo petalo3"></div>
+        <div class="petalo petalo4"></div>
+        <div class="centro"></div>
+    </div>
+
+    <div class="flor flor3">
+        <div class="petalo petalo1"></div>
+        <div class="petalo petalo2"></div>
+        <div class="petalo petalo3"></div>
+        <div class="petalo petalo4"></div>
+        <div class="centro"></div>
+    </div>
+
+    <script>
+        const mensajeCompleto = ` sé que compartimos los mismos pasillos y vemos las mismas caras en el colegio, pero hay algo en tu sonrisa que es diferente para mí. No sé qué es, pero cuando la veo, aunque sea de lejos, ¡me levanta el ánimo al instante! Es como si le pusieras color a mi día, ¿sabes?
+
+Puede que estemos en diferentes cursos, pero esa luz que irradia tu alegría es contagiosa. Quería que lo supieras y, de paso, dejarte estas florecitas virtuales como un pequeño recordatorio de lo genial que eres.`;
+
+        const mensajeParaMostrar = document.getElementById('mensajeParaElla');
+        let index = 0;
+
+        function escribirMensaje() {
+            if (index < mensajeCompleto.length) {
+                mensajeParaMostrar.textContent += mensajeCompleto.charAt(index);
+                index++;
+                setTimeout(escribirMensaje, 40);
+            }
+        }
+
+        window.onload = escribirMensaje;
+    </script>
+</body>
+</html>
